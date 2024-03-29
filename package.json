@@ -1,13 +1,13 @@
 {
   "name": "trabalho1-back-end",
   "version": "0.0.0",
+  "main": "index.js",
   "private": true,
-  
   "scripts": {
     "start": "node ./bin/www",
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
-    "test": "echo \"Error: no test specified\" && exit 1"
-
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "SET DEBUG=trabalho1-back-end:* && npm start"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,7 +15,8 @@
     "express": "^4.19.2",
     "http-errors": "~1.6.3",
     "jade": "^0.29.0",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "mysql2": "^3.9.3"
   },
   "devDependencies": {
     "eslint": "^8.57.0"
