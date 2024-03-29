@@ -1,9 +1,27 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+const mysql = require('mysql2/promise');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', async function (req, res, next) {
+    try {
+        const connection = await mysql.createConnection({
+            host: 'localhost',
+            user: 'desafio',
+            password: '123Mudar*',
+            database: 'desafiobd',
+            port: 3306,
+        });
+
+        const [rows] = await connection.query('SELECT * FROM clientes');
+        await connection.end();
+
+        res.send(rows);
+    } catch (error) {
+        console.error('Erro ao obter dados do banco de dados:', error);
+        res.status(500).send('Erro interno do servidor');
+    }
 });
 
 module.exports = router;
