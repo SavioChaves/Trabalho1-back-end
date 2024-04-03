@@ -7,18 +7,26 @@
     "start": "node ./bin/www",
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "SET DEBUG=trabalho1-back-end:* && npm start"
+    "debug": "SET DEBUG=trabalho1-back-end:* && npm start",
+    "nodemon": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-generator": "^4.2.0",
     "http-errors": "~1.6.3",
     "jade": "^0.29.0",
     "morgan": "~1.9.1",
     "mysql2": "^3.9.3"
   },
   "devDependencies": {
-    "eslint": "^8.57.0"
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.34.1",
+    "nodemon": "^3.1.0"
   }
 }

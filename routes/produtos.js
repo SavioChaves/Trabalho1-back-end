@@ -3,38 +3,19 @@ const router = express.Router();
 
 const mysql = require('mysql2/promise');
 
+const produtosController = require('../controllers/produtosController');
+
 /* GET home page. */
-router.get('/', async function(req, res, next) {
-    try {
-        const connection = await mysql.createConnection({
-            host: 'localhost',
-            user: 'desafio',
-            password: '123Mudar*',
-            database: 'desafiobd',
-            port: 3306,
-        });
+router.get('/', produtosController.findAll); 
 
-        const [rows] = await connection.execute('SELECT * FROM produtos');
-        res.send(rows);
-    } catch (error) {
-        console.error('Error retrieving data:', error);
-        res.status(500).send('Internal Server Error');
-    }
-});
+/* PUT clientes listing. */
+router.put('/', produtosController.update); 
 
-/* PUT produtos listing. */
-router.put('/', function(req, res, next) {
-    res.send('respond with a resource PUT');
-});
+/* POST clientes listing. */
+router.post('/',produtosController.save);
 
-/* POST produtos listing. */
-router.post('/', function(req, res, next) {
-    res.send('respond with a resource POST');
-});
+/* DELETE clientes listing. */
+router.delete('/:id', produtosController.remove);
 
-/* DELETE produtos listing. */
-router.delete('/', function(req, res, next) {
-    res.send('respond with a resource DELETE');
-});
 
 module.exports = router;

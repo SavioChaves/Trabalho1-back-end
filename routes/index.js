@@ -9,7 +9,7 @@ router.get('/', async function (req, res, next) {
         const connection = await mysql.createConnection({
             host: 'localhost',
             user: 'desafio',
-            password: '123Mudar*',
+            password: '123senha123',
             database: 'desafiobd',
             port: 3306,
         });
